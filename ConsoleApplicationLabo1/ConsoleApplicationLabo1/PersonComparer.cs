@@ -11,7 +11,7 @@ namespace ConsoleApplicationLabo1
        
 public int GetHashCode(Person obj)
         {
-           
+            return obj.Name.GetHashCode() ^ obj.Age.GetHashCode();
         }
 
         bool IEqualityComparer<Person>.Equals(Person x, Person y)

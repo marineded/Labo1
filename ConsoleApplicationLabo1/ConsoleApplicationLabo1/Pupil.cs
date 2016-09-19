@@ -10,7 +10,7 @@ namespace ConsoleApplicationLabo1
     {
         private int grade;
         private List<Activity> lstActivities;
-        private char[] tabEval;
+        private char[] pupilEvaluation;
 
        
 
@@ -40,16 +40,16 @@ namespace ConsoleApplicationLabo1
             }
         }
 
-        public char[] TabEval
+        public char[] PupilEvaluation
         {
             get
             {
-                return tabEval;
+                return pupilEvaluation;
             }
 
             set
             {
-                tabEval = value;
+                pupilEvaluation = value;
             }
         }
 
@@ -57,7 +57,7 @@ namespace ConsoleApplicationLabo1
         {
             Grade = grade;
             LstActivities = new List<Activity>();
-            TabEval = new char[10];
+            PupilEvaluation = new char[10];
         }
         public Pupil(String name, int age) : this(name,age,1)
         {}
@@ -95,7 +95,7 @@ namespace ConsoleApplicationLabo1
                     if (activity.Title == title) break;
                     i++;
                 }
-                TabEval[i] = evaluation;
+                PupilEvaluation[i] = evaluation;
             }
 
         }
