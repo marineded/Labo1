@@ -61,31 +61,48 @@ namespace ConsoleApplicationLabo1
         }
         public Pupil(String name, int age) : this(name,age,1)
         {}
-        public void AddActivity(Activity activity)
+       /* public void AddActivity(Activity activity)
         {
             LstActivities.Add(activity);
         }
-
+        */
         public override string ToString()
         {
-            string ch = base.ToString();
+            string ch = HeaderPupil();
+            ch = PrintActivitiesPupil(ch);
+            return ch;
+        }
+
+        private string HeaderPupil()
+        {
+            return base.ToString();
+        }
+
+        private string PrintActivitiesPupil(string ch)
+        {
             int cptActivities = LstActivities.Count();
             if (cptActivities == 0)
             {
-                ch += " n'a pas encore choisi d'activité)";
+                ch += " n'a pas encore choisi d'activité)\n";
             }
             else
             {
                 ch += " a choisi les activités suivantes :";
-                foreach (Activity activity in LstActivities)
+                /*foreach (Activity activity in LstActivities)
                 {
-                    ch += activity.ToString() + ", ";
+                    ch += activity.ToString() + ", \n";
 
+                }*/
+                for (var i = 0; i < PupilActivities.Count; i++)
+                {
+                    ch += "\n" + PupilActivities.ElementAt(i).Key.ToString() + " : " + PupilActivities.ElementAt(i).Value;
                 }
-            }
+               }
+            
             return ch;
         }
-        public void AddEvalutation(String title = null, char evaluation = (char)Parameter.Evaluation.Satisfaisant)
+
+   /*   public void AddEvalutation(String title = null, char evaluation = (char)Parameter.Evaluation.Satisfaisant)
         {
             if (title != null)
             {
@@ -98,7 +115,21 @@ namespace ConsoleApplicationLabo1
                 PupilEvaluation[i] = evaluation;
             }
 
+        }*/
+        private Dictionary<String, char> pupilActivities = new Dictionary<String, char>();
+         
+        public Dictionary<String, char> PupilActivities {get; set;}
+
+        public void AddActivity(String activityTitle)
+        {
+            PupilActivities.Add(activityTitle, '0');
         }
-        
+
+        public void AddEvaluation(String title = null, char evaluation = 'S')
+        {
+            if (title != null) PupilActivities[title] = evaluation;
+        }
+       
+
     }
 }

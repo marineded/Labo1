@@ -17,13 +17,13 @@ namespace ConsoleApplicationLabo1
             Activity coloriage = new Activity("Coloriage", true);
 
 
-            p1.AddActivity(a1);
+         /*   p1.AddActivity(a1);
             p1.AddActivity(a2);
             pupilGrade1.AddActivity(coloriage);
-            pupilGrade1.AddEvalutation("Coloriage");
+            pupilGrade1.AddEvalutation("Coloriage");*/
 
 
-            p1.AddEvalutation(evaluation: 'T', title: "Sciences");
+           // p1.AddEvalutation(evaluation: 'T', title: "Sciences");
 
 
             System.Console.Write(p1);
@@ -65,21 +65,25 @@ namespace ConsoleApplicationLabo1
 
             var listFusion = listPersons.Union(listPupils);
 
-            foreach (var list in listFusion)
+        /*    foreach (var list in listFusion)
             {
                 Console.WriteLine(list);
             }
-
+*/
             IEnumerable<Pupil> listPupilsNoDuplicated = listPupilsDuplicated.Distinct<Pupil>(new PersonComparer());
             //var pupilGrade1Plus6 = from pupil in listPupils where pupil.Grade == 1 && pupil.Age > 6 select pupil;
             var pupilGrade1Plus6 = listPupils.Where(pupil => pupil.Grade == 1 && pupil.Age > 6);
             //var pupilGrade1Plus6 = listPupils.FindAll(pupil => pupil.Grade == 1 && pupil.Age > 6);
 
+            foreach (var list in listPupilsNoDuplicated)
+            {
+                Console.WriteLine(list);
+            }
             //Console.Write(julien);
-            foreach (var p in pupilGrade1Plus6)
+           /* foreach (var p in pupilGrade1Plus6)
             {
                 Console.WriteLine(p);
-            }
+            }*/
          
        Console.Read();
 
